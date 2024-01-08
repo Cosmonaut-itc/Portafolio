@@ -6,21 +6,35 @@ import {
     CardHeader,
     CardTitle,
 } from "../components/ui/card"
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "../components/ui/accordion"
 
-export function BodyComponent(){
+import React from "react";
+
+type CardProps = React.ComponentProps<typeof Card>
+
+export function BodyComponent({ className, ...props }: CardProps){
     return(
         <div className='px-10 pt-5'>
             <Card>
                 <CardHeader>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardDescription>Card Description</CardDescription>
+                    <CardTitle>FAQ</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p>Card Content</p>
+                    <Accordion type="single" collapsible>
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger>Are you open to freelance jobs?</AccordionTrigger>
+                            <AccordionContent>
+                                It depends on the complexity of the job as I currently have a full time job.
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
                 </CardContent>
-                <CardFooter>
-                    <p>Card Footer</p>
-                </CardFooter>
+
             </Card>
         </div>
     )
